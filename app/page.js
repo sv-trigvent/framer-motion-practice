@@ -12,7 +12,7 @@ export default function Home() {
     <>
       <Header ref={stickyElement} />
       <StickyCursor stickyElement={stickyElement} />
-      {/* <Hero /> */}
+      <Hero />
       
     </>
   );
