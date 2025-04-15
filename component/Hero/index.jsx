@@ -1,7 +1,14 @@
 import styles from './style.module.scss';
 import CustomMagnetic from "../NoMagnetic/index"
-import { motion, AnimatePresence } from 'framer-motion';
+import {
+    motion, 
+    AnimatePresence, 
+    useMotionTemplate,
+    useMotionValue,
+    animate,
+} from 'framer-motion';
 import { useState, useEffect } from 'react';
+
 
 export default function Hero() {
     // Array of greetings in different languages
@@ -12,6 +19,8 @@ export default function Hero() {
         "Bonjour", // French
         "Ciao", // Italian
     ];
+
+    const COLORS_TOP = ["#976060", "#c27b7b", "#8a4545", "#d4a5a5"];
 
     const [currentGreetingIndex, setCurrentGreetingIndex] = useState(0);
     const [displayText, setDisplayText] = useState("Shiwam Vishwakarma");
@@ -43,9 +52,24 @@ export default function Hero() {
     const summary = "I'm a Frontend Developer who crafts clean, responsive, and interactive web experiences. I specialize in React and love building seamless UIs that users enjoy."
     const words = summary.split(" ").map(word => word.trim());
 
+    const color = useMotionValue(COLORS_TOP[0]);
+
+    useEffect(() => {
+        animate(color, COLORS_TOP, {
+            ease: "easeInOut",
+            duration: 10,
+            repeat: Infinity,
+            repeatType: "mirror",
+        });
+    }, []);
+
+    const backgroundImage = useMotionTemplate`radial-gradient(155% 180% at 30% 0%, #020617 50%, ${color})`;
+
     return (
         <CustomMagnetic strength={0.00}>
-            <div className={styles.hero}>
+            <motion.div className={styles.hero} style={{
+                backgroundImage
+            }}>
                 <div className={styles.greetingContainer}>
                     <AnimatePresence mode="wait">
                         <motion.h1
@@ -118,7 +142,7 @@ export default function Hero() {
                         </motion.p>
                     ))}
                 </div>
-            </div>
+            </motion.div>
         </CustomMagnetic>
     )
 }
