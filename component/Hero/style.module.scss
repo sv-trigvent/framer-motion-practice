@@ -10,7 +10,7 @@
     mix-blend-mode: difference;
 
     h1 {
-        font-size: 4rem;
+        font-size: 5rem;
         font-weight: 700;
         margin-bottom: 1rem;
         background: linear-gradient(to right, #fff, #976060);
@@ -23,21 +23,15 @@
     }
 
     p {
-        font-size: 1.5rem;
+        font-size: 2.5rem;
         line-height: 1.6;
-        color: #e0e0e0;
+        color: #fff;
         max-width: 700px;
         margin-bottom: 1.5rem;
 
         span {
             color: #976060;
             font-weight: 600;
-        }
-
-        &:last-child {
-            font-size: 1.2rem;
-            color: #a0a0a0;
-            max-width: 600px;
         }
 
         @media (max-width: 768px) {
@@ -48,4 +42,47 @@
             }
         }
     }
+}
+
+
+
+.nameContainer {
+    display: inline-flex;
+    flex-wrap: wrap;
+    color: #976060;
+    font-weight: 600;
+    min-width: 300px;
+    height: 1.5em;
+}
+
+.animatedLetterWhite {
+    display: inline-block;
+    position: relative;
+    color: white !important; 
+}
+
+.animatedLetter {
+    display: inline-block;
+    position: relative;
+}
+
+.greetingContainer {
+    height: 5rem;
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.heroText {
+    font-size: 1.4rem !important;
+    line-height: 1.6 !important;
+    display: inline-block;
+    margin-right: 0.5rem;
+    margin-bottom: 0.5rem !important;
+}
+
+.heroContainer {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 700px;
 }
