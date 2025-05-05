@@ -1,0 +1,18 @@
+.main {
+    text-align: center;
+    margin-top: 50vh;
+    margin-bottom: 100vh;
+
+    h1 {
+        font-size: 5rem;
+        font-weight: 700;
+        margin-bottom: 1rem;
+        background: linear-gradient(to right, #fff, #ff7c7c);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+
+        @media (max-width: 768px) {
+            font-size: 3rem;
+        }
+    }
+}

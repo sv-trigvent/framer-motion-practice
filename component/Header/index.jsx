@@ -23,7 +23,7 @@ const Header = forwardRef(function index(props, ref) {
                 <div className={styles.header}>
                     <Magnetic>
                         <div className={styles.logo}>
-                            <p className='text-white text-4xl font-semibold pl-6'>im<span className='text-[#976060]'>Blacksmith</span></p>
+                            <p className='text-white text-4xl font-semibold pl-6'>im<span className='text-[#ff7c7c]'>Blacksmith</span></p>
                         </div>
                     </Magnetic>
 

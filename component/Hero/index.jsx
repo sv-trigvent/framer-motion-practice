@@ -1,13 +1,15 @@
 import styles from './style.module.scss';
 import CustomMagnetic from "../NoMagnetic/index"
 import {
-    motion, 
-    AnimatePresence, 
+    motion,
+    AnimatePresence,
     useMotionTemplate,
     useMotionValue,
     animate,
 } from 'framer-motion';
 import { useState, useEffect } from 'react';
+
+import Partical from '../Particles/index';
 
 
 export default function Hero() {
@@ -27,48 +29,50 @@ export default function Hero() {
     const [isAnimating, setIsAnimating] = useState(true);
 
     // For greeting rotation
-    useEffect(() => {
-        const interval = setInterval(() => {
-            setCurrentGreetingIndex((prevIndex) =>
-                prevIndex === greetings.length - 1 ? 0 : prevIndex + 1
-            );
-        }, 1800);
+    // useEffect(() => {
+    //     const interval = setInterval(() => {
+    //         setCurrentGreetingIndex((prevIndex) =>
+    //             prevIndex === greetings.length - 1 ? 0 : prevIndex + 1
+    //         );
+    //     }, 1800);
 
-        return () => clearInterval(interval);
-    }, []);
+    //     return () => clearInterval(interval);
+    // }, []);
 
-    // For name/title alternation
-    useEffect(() => {
-        const textInterval = setInterval(() => {
-            setDisplayText(prev =>
-                prev === "Shiwam Vishwakarma" ? "Frontend Developer" : "Shiwam Vishwakarma"
-            );
-            setIsAnimating(true);
-        }, 5000);
+    // // For name/title alternation
+    // useEffect(() => {
+    //     const textInterval = setInterval(() => {
+    //         setDisplayText(prev =>
+    //             prev === "Shiwam Vishwakarma" ? "Frontend Developer" : "Shiwam Vishwakarma"
+    //         );
+    //         setIsAnimating(true);
+    //     }, 5000);
 
-        return () => clearInterval(textInterval);
-    }, []);
+    //     return () => clearInterval(textInterval);
+    // }, []);
 
-    const summary = "I'm a Frontend Developer who crafts clean, responsive, and interactive web experiences. I specialize in React and love building seamless UIs that users enjoy."
+    // const summary = "I'm a Frontend Developer who crafts clean, responsive, and interactive web experiences. I specialize in React and love building seamless UIs that users enjoy."
+    const summary = "Passionate Engineer specializing in frontend, dedicated to building performant and visually engaging web applications. Focused on delivering seamless user experiences through clean, efficient code and thoughtfull UI/UX Caesar_Dressing. Committed to continuous learning and translating ideas into impactfull digital solutions.";
     const words = summary.split(" ").map(word => word.trim());
 
     const color = useMotionValue(COLORS_TOP[0]);
 
-    useEffect(() => {
-        animate(color, COLORS_TOP, {
-            ease: "easeInOut",
-            duration: 10,
-            repeat: Infinity,
-            repeatType: "mirror",
-        });
-    }, []);
+    // useEffect(() => {
+    //     animate(color, COLORS_TOP, {
+    //         ease: "easeInOut",
+    //         duration: 10,
+    //         repeat: Infinity,
+    //         repeatType: "mirror",
+    //     });
+    // }, []);
 
-    const backgroundImage = useMotionTemplate`radial-gradient(155% 180% at 30% 0%, #020617 50%, ${color})`;
+    const backgroundImage = useMotionTemplate`radial-gradient(155% 180% at 30% 0%, #050303  50%, ${color})`;
 
     return (
         <CustomMagnetic strength={0.00}>
             <motion.div className={styles.hero} style={{
-                backgroundImage
+                // backgroundImage,
+
             }}>
                 <div className={styles.greetingContainer}>
                     <AnimatePresence mode="wait">
@@ -142,6 +146,7 @@ export default function Hero() {
                         </motion.p>
                     ))}
                 </div>
+                <Partical />
             </motion.div>
         </CustomMagnetic>
     )
